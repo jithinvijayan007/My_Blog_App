@@ -1,0 +1,17 @@
+{% extends "blogs/base.html" %}
+{% block content %}
+
+{% for posts in object_list %}
+<article class="media content-section">
+  <img class="rounded-circle article-img" src="{{ posts.Image.url }}">
+     <div class="media-body">
+       <div class="article-metadata">
+         <a class="mr-2" href="#">{{ posts.author }}</a>
+         <small class="text-muted">{{ posts.Date_Of_Upload|date:"F d, Y" }}</small>
+       </div>
+       <h2><a class="article-title" href="{% url "detail" posts.id %}">{{ posts.Title }}</a></h2>
+       <p class="article-content">{{ posts.Content }}</p>
+     </div>
+    </article>
+{% endfor %}
+{% endblock %}
