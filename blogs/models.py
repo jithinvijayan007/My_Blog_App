@@ -17,10 +17,10 @@ class Posts(models.Model):
         return reverse("list")
 
     class CustomUserManager(BaseUserManager):
-    """Define a model manager for User model with no username field."""
+    
 
     def _create_user(self, email, password=None, **extra_fields):
-        """Create and save a User with the given email and password."""
+       
         if not email:
             raise ValueError('The given email must be set')
         email = self.normalize_email(email)
